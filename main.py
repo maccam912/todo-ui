@@ -443,8 +443,7 @@ def build_ui() -> None:
                 prompt_box = ui.textarea(
                     label="Describe what you need",
                     placeholder="Design and build a coat rack with dependencies...",
-                    auto_resize=True,
-                ).classes("w-full")
+                ).props("autogrow").classes("w-full")
                 history_column = ui.column().classes("gap-2 max-h-[460px] overflow-y-auto")
                 ui.button(
                     "Run with LLM and vikunja-mcp",
