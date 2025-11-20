@@ -1,0 +1,55 @@
+[project]
+name = "todo-ui"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp>=1.21.2",
+    "nicegui>=3.3.1",
+    "openai>=2.8.1",
+    "pydantic>=2.12.4",
+    "python-dotenv>=1.2.1",
+    "vikunja-mcp",
+]
+
+[tool.uv.sources]
+vikunja-mcp = { git = "https://github.com/maccam912/vikunja-mcp" }
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.24.0",
+    "respx>=0.21.1",
+    "ruff>=0.6.9",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py313"
+src = ["."]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "B",
+    "UP",
+    "ASYNC",
+    "A",
+    "C4",
+    "RUF",
+    "Q",
+    "S",
+]
+ignore = ["S311"]
+extend-ignore = ["S104"]
+per-file-ignores = {"tests/*" = ["S101"]}
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
